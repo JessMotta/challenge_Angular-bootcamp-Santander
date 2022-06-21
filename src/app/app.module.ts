@@ -4,16 +4,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import { AlunoComponent } from './aluno/aluno.component';
+import { ProfessorComponent } from './professor/professor.component';
+import {MatTableModule} from '@angular/material/table';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AlunoComponent,
+    ProfessorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
-  ],
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatTableModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

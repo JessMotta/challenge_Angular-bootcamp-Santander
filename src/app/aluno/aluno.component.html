@@ -1,0 +1,65 @@
+<section>
+    <section>
+        <div class="example-button-row">
+          <button (click)="exibirTabela()" mat-raised-button color="primary">Exibir tabela</button>
+          <button (click)="esconderTabela()" mat-raised-button color="secondary">Esconder tabela</button>
+
+        </div>
+      </section>
+    
+    <!-- <table *ngIf="exibeTabela" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Série</th>
+                <th>Turma</th>
+                <th>Professor</th>
+            </tr>
+        </thead>
+    
+        <tbody *ngFor="let aluno of listaAlunos">
+            <tr>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.serie}}</td>
+                <td>{{aluno.turma}}</td>
+                <td>{{aluno.professor}}</td>
+    
+            </tr>
+        </tbody>
+    </table> -->
+
+
+    <table *ngIf="exibeTabela" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="serie">
+          <th mat-header-cell *matHeaderCellDef> Série </th>
+          <td mat-cell *matCellDef="let element"> {{element.serie}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="turma">
+          <th mat-header-cell *matHeaderCellDef> Turma </th>
+          <td mat-cell *matCellDef="let element"> {{element.turma}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="professor">
+          <th mat-header-cell *matHeaderCellDef> Professor </th>
+          <td mat-cell *matCellDef="let element"> {{element.professor}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+      </table>
+
+</section>
