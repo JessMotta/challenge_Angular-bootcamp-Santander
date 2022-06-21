@@ -1,1 +1,40 @@
-<p>professor works!</p>
+<section>
+    <section>
+        <div class="example-button-row">
+          <button (click)="exibirTabela()" mat-raised-button color="primary">Exibir tabela</button>
+          <button (click)="esconderTabela()" mat-raised-button color="secondary">Esconder tabela</button>
+
+        </div>
+      </section>
+    
+    <table *ngIf="exibeTabela" mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-3">
+        <!-- Coluna nome -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+      
+        <!-- Coluna Série -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+      
+        <!-- Coluna Turma -->
+        <ng-container matColumnDef="idade">
+          <th mat-header-cell *matHeaderCellDef> Idade </th>
+          <td mat-cell *matCellDef="let element"> {{element.idade}} </td>
+        </ng-container>
+      
+        <!-- Coluna Professor -->
+        <ng-container matColumnDef="disciplina">
+          <th mat-header-cell *matHeaderCellDef> Disciplina </th>
+          <td mat-cell *matCellDef="let element"> {{element.disciplina}} </td>
+        </ng-container>
+      
+        <!-- Inserção de dados -->
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+      </table>
+
+</section>
